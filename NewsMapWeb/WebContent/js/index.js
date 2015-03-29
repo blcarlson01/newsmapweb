@@ -1,4 +1,8 @@
- window.onload = function() {
+
+$(function(){$("#sidebar .title").parent().on("click",function(a){$("#sidebar .content").is(":hidden")?($("#sidebar .content").slideDown(100),$("#sidebar .toggle-triangle").removeClass("down-carat"),$("#sidebar .toggle-triangle").addClass("up-carat")):($("#sidebar .content").slideUp(100),$("#sidebar .toggle-triangle").removeClass("up-carat"),$("#sidebar .toggle-triangle").addClass("down-carat"))})});function toggleSidebar(){$("#sidebar .title").parent().click()}700>$(window).width()&&$(function(){toggleSidebar()});
+
+
+window.onload = function() {
 
         // map center
         var myLatlng = new google.maps.LatLng(25.6586, -80.3568);
