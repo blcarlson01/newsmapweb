@@ -1,0 +1,48 @@
+// Initial GET
+[
+   {
+      "model":"news.article",
+      "pk":634280,
+      "fields":{
+         "location":[
+            "Armenia",
+            40.1666666666667,
+            44.5
+         ],
+         "importance":3445
+      }
+   },
+   {
+      "model":"news.article",
+      "pk":634073,
+      "fields":{
+         "location":[
+            "Armenia",
+            40.1666666666667,
+            44.5
+         ],
+         "importance":3416
+      }
+   }
+]
+
+
+// Article
+[
+{
+"model": "news.article",
+"pk": 633940,
+"fields":
+	{
+		"date": "2015-04-25T06:09:45.315Z",
+		"provider": "TheArgus",
+		"cluster_url": "http://news.google.com/news/more?ncl=d7k_dPVqVmSDwRM&authuser=0&ned=us", 
+		"summary" : "Joe Root admitted pitches...",
+		"title": "Root bemoans Grenada pitch", 
+		"location": ["Grenada", 12.11666666, -61.66666666], 
+		"article_url": "http://news.google.com/news",
+		"importance": 1,
+		 "image_url": ""
+	}
+}
+]
