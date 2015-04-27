@@ -33,12 +33,18 @@
 		<div style="display: block;" class="content">
 			<div style="padding-top: 0; height: auto" class="section"
 				id="sidebarContent">
-				<div>
-					Search <input>
-				</div>
-				<ul>
-					<li>All</li>
-					<li>World</li>
+				<input id="pac-input" class="select-search" type="text"
+					placeholder="Search News Articles"> Categories
+				<ul class="sidebar-select">
+					<li id="allNews">All</li>
+					<li id="worldNews">World News</li>
+					<li id="usNews">US News</li>
+				</ul>
+				Sentiment
+				<ul class="sidebar-select-sentiment">
+					<li id="bothSentiment">Both</li>
+					<li id="postiveSentiment">Positive</li>
+					<li id="negativeSentiment">Negative</li>
 				</ul>
 			</div>
 		</div>
@@ -53,19 +59,22 @@
 	</div>
 	<div class="popup-window theme-background is-closed"
 		id="article-window">
-		<img class="button" id="article-close" src="images/close.png">
-		<span class="article-details-small" id="article-category"></span>
-		<span id="share-bar"></span>		
+		<img class="button" id="article-close" src="images/close.png"> <span
+			class="article-details-small" id="article-category"></span> <span
+			id="share-bar"></span>
 		<div>
 			<a id="article-title"></a>
 		</div>
-		<span class="article-details-small" id="article-author"></span>
-		<span class="article-sentiment"><a id="article-sentiment" href="#" data-toggle="tooltip" data-placement="top"></a></span>
+		<span class="article-details-small" id="article-author"></span> <span
+			class="article-sentiment"><a id="article-sentiment" href="#"
+			data-toggle="tooltip" data-placement="top"></a></span>
 		<div id="article">
 			<img id="article-image" />
 			<p id="article-summary"></p>
 		</div>
-		<div class="article-keywords">Keywords: <span id="article-keywords"></span></div>
+		<div class="article-keywords">
+			Keywords: <span id="article-keywords"></span>
+		</div>
 		<a id="cluster-link">All related articles</a>
 		<div class="nav-right">
 			<img src="images/back.png" class="button" id="prev-article"> <img
@@ -87,7 +96,7 @@
 		src="https://maps.googleapis.com/maps/api/js?libraries=visualization"></script>
 	<script src="js/external/jquery-2.1.3.min.js"></script>
 	<script src="js/external/jquery.share.js"></script>
-	<script src="js/external/jBox.min.js"></script>		
+	<script src="js/external/jBox.min.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>

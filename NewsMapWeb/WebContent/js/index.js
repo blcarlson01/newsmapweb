@@ -1,8 +1,10 @@
-var heatmap = [];
+var heatmapPostive = [];
+var heatmapNegative = [];
 var articleIndex = 0;
 var latLng = [];
 var map = [];
-var new_heatmap = [];
+var new_heatmapPostive = [];
+var new_heatmapNegative = [];
 
 $(document).ready(initialize);
 
@@ -11,6 +13,8 @@ function initialize()
 {
 	displayMap();
 	displayArticles();
+	$("#bothSentiment").addClass("active");
+	$("#allNews").addClass("active");
 }
 
 // Functionality for the popup box
@@ -78,45 +82,98 @@ function closeWindow(e) {
 // Get Article Information
 // TODO: change for how we do articles
 function displayArticles(){
-	// TODO: get articles from the DB
-	var articles = 
-		[{
+	// TODO: get articles from the DB / flip values
+    var articles = 
+    	[  {
 		     "pk":634280,
-	         "location":["Moscow", 55.7522200, 37.6155600],
-		     "importance":3445		      
-		   },
-		   {
-			   "pk":634281,
-			   "location":["Paris",48.8534100,2.3488000],
-			   "importance":1000	
-		   }];
+	         "location":["Dublin", 53.3330600, -6.2488900],
+		     "averageSentiment":2	      
+	   },
+	   {
+		     "pk":634280,
+	         "location":["Rome", 41.8919300 , 12.5113300],
+		     "averageSentiment":3.15 // positive		      
+	   },		   
+	   {
+		   "pk":634281,
+		   "location":["Paris",48.8534100,2.3488000],
+		   "averageSentiment":4 //very positive	
+	   },
+	   {
+	     "pk":634280,
+        "location":["Moscow", 55.7522200, 37.6155600],
+	     "averageSentiment": 0 //very negative	       
+	   },
+	   {
+		     "pk":634280,
+	         "location":["London", 51.5085300, -0.1257400],
+		     "averageSentiment": 1 // negative		      
+	   },
+	   {
+		     "pk":634280,
+	         "location":["Dublin", 53.3330600, -6.2488900],
+		     "averageSentiment": 2 // netrual	      
+	   }];
     
     if (articles.length === 0) {
         window.alert("Sorry, we don't have any data for this date.");
         return;
     }
     
-    var points = [];
+    var negPoints = [];
+    var posPoints = [];
     for (var i in articles) {
-        latlng = articles[i].location.slice(1, 3);
-        points.push({
-            location: new google.maps.LatLng(latlng[0], latlng[1]),
-            weight: Math.pow(articles[i].importance, 0.4 )
-        });
+    	var article = articles[i];
+    	var weight = 5;
+    	latlng = articles[i].location.slice(1, 3);    	
+    	// Postive (Neutral is added to both)
+    	if(article.averageSentiment > 2){
+    		if(article.averageSentiment <= 3){
+    			weight = 20 * article.averageSentiment;
+    		}else{
+    			weight = 50 * article.averageSentiment;
+    		}
+    		posPoints.push({
+                location: new google.maps.LatLng(latlng[0], latlng[1]),
+                weight: weight
+            });	
+    	}
+    	
+    	// Negative
+    	if(article.averageSentiment < 2){
+    		if(article.averageSentiment >= 1){
+    			weight = 20 * (4 - article.averageSentiment);
+    		}else{
+    			weight = 50 * (4 - article.averageSentiment);
+    		}
+    			
+    		negPoints.push({
+                location: new google.maps.LatLng(latlng[0], latlng[1]),
+                weight: weight
+            });
+    	}
+    		
+    	if(article.averageSentiment == 2){
+    		posPoints.push({
+                location: new google.maps.LatLng(latlng[0], latlng[1]),
+                weight: weight
+            });
+    		negPoints.push({
+                location: new google.maps.LatLng(latlng[0], latlng[1]),
+                weight: weight
+            });
+    	}        
     }
 
-    timelapse(new google.maps.MVCArray(points));    
+    timelapse(new google.maps.MVCArray(posPoints),new google.maps.MVCArray(negPoints));
 }
 
-//Uses Google Maps
+// Uses Google Maps
 function displayMap()
 {
 	var mapOptions = {
 		center: new google.maps.LatLng(30, 0),
-	    zoom: 3,
-	    minZoom: 3,
-	    maxZoom: 4,
-	    // disableDefaultUI: true
+	    zoom: 3,	   
 	};
 	
 	// standard map
@@ -132,8 +189,8 @@ function displayMap()
     setStyle(map);
 }
 
-//Map Style
-//TODO: change color based on sentiment
+// Map Style
+// TODO: change color based on sentiment
 function setStyle(e) {
  var t = [
 {
@@ -169,26 +226,101 @@ function setStyle(e) {
  e.setOptions({
      styles: t
  });
- heatmap = new google.maps.visualization.HeatmapLayer();
- heatmap.setMap(e);
- heatmap.set("opacity", 0.80);
- heatmap.set("radius", 40);
- var grad = ["rgba(72, 190, 226, 0)",
-             "rgba(72, 190, 226, 1)", 
-             "rgb(100, 203, 230)",
-             "rgb(138, 217, 233)", 
-             "rgb(169, 227, 236)",
-             "rgb(202, 232, 237)",
-             "rgb(212, 231, 234)",
-             "rgba(255, 255, 255, 1)"];
- heatmap.set("gradient", grad);
- new_heatmap = new google.maps.visualization.HeatmapLayer();
- new_heatmap.setMap(e);
- new_heatmap.set("opacity", 0.80);
- new_heatmap.set("radius", 40);
- new_heatmap.set("gradient", grad);
+ heatmapPostive = new google.maps.visualization.HeatmapLayer();
+ heatmapPostive.setMap(e);
+ heatmapPostive.set("opacity", 0.80);
+ heatmapPostive.set("radius", 20);
+ 
+ heatmapNegative = new google.maps.visualization.HeatmapLayer();
+ heatmapNegative.setMap(e);
+ heatmapNegative.set("opacity", 0.80);
+ heatmapNegative.set("radius", 20);
+
+ //Blue - positive
+ var gradient1 = [
+ 'rgba(0, 255, 255, 0)',
+ 'rgba(0, 255, 255, 1)',
+ 'rgba(0, 225, 255, 1)',
+ 'rgba(0, 200, 255, 1)',
+ 'rgba(0, 175, 255, 1)',
+ 'rgba(0, 160, 255, 1)',
+ 'rgba(0, 145, 223, 1)',
+ 'rgba(0, 125, 191, 1)',
+ 'rgba(0, 110, 255, 1)',
+ 'rgba(0, 100, 255, 1)',
+ 'rgba(0, 75, 255, 1)',
+ 'rgba(0, 50, 255, 1)',
+ 'rgba(0, 25, 255, 1)',
+ 'rgba(0, 0, 255, 1)'
+];
+//Red - negative
+var gradient2 = [
+ 'rgba(255, 255, 0, 0)',
+ 'rgba(255, 255, 0, 1)',
+ 'rgba(255, 225, 0, 1)',
+ 'rgba(255, 200, 0, 1)',
+ 'rgba(255, 175, 0, 1)',
+ 'rgba(255, 160, 0, 1)',
+ 'rgba(255, 145, 0, 1)',
+ 'rgba(255, 125, 0, 1)',
+ 'rgba(255, 110, 0, 1)',
+ 'rgba(255, 100, 0, 1)',
+ 'rgba(255, 75, 0, 1)',
+ 'rgba(255, 50, 0, 1)',
+ 'rgba(255, 25, 0, 1)',
+ 'rgba(255, 0, 0, 1)'
+]; 
+ 
+ heatmapPostive.set("gradient", gradient1);
+ new_heatmapPostive = new google.maps.visualization.HeatmapLayer();
+ new_heatmapPostive.setMap(e);
+ new_heatmapPostive.set("opacity", 0.80);
+ new_heatmapPostive.set("radius", 20);
+ new_heatmapPostive.set("gradient", gradient1);
+  
+ heatmapNegative.set("gradient", gradient2);
+ new_heatmapNegative = new google.maps.visualization.HeatmapLayer();
+ new_heatmapNegative.setMap(e);
+ new_heatmapNegative.set("opacity", 0.80);
+ new_heatmapNegative.set("radius", 20);
+ new_heatmapNegative.set("gradient", gradient2);
 }
 
+function timelapse(postive, negative) {	
+		new_heatmapPostive.set("opacity", 0);
+	    new_heatmapPostive.setData(postive);
+	    heatmapPostive.set("opacity", 0.8);
+	    
+	    new_heatmapNegative.set("opacity", 0);
+	    new_heatmapNegative.setData(negative);
+	    heatmapNegative.set("opacity", 0.8);
+	    var t = 0;
+	    var n = 0.8;
+	    var r = setInterval(function() {
+	        t += 0.01;
+	        n -= 0.01;
+	        new_heatmapPostive.set("opacity", t);
+	        heatmapPostive.set("opacity", n);
+	        
+	        new_heatmapNegative.set("opacity", t);
+	        heatmapNegative.set("opacity", n);
+	        if (t >= 0.8) {
+	            heatmapPostive.setData(postive);
+	            
+	            heatmapNegative.setData(negative);
+	            setTimeout(function() {
+	                heatmapPostive.set("opacity", 0.8);
+	                new_heatmapPostive.set("opacity", 0);
+	                new_heatmapPostive.setData([]);
+	                
+	                heatmapNegative.set("opacity", 0.8);
+	                new_heatmapNegative.set("opacity", 0);
+	                new_heatmapNegative.setData([]);
+	                clearInterval(r);
+	            }, 50);
+	        }
+	    }, 10);
+}
 
 function getArticle() {
 	var articles = 
@@ -275,30 +407,6 @@ function viewinfobar() {
         duration: 25,
         queue: false
     });
-}
-
-// TODO: review usefulness Interest time lapse
-function timelapse(e) {
-    new_heatmap.set("opacity", 0);
-    new_heatmap.setData(e);
-    heatmap.set("opacity", 0.8);
-    var t = 0;
-    var n = 0.8;
-    var r = setInterval(function() {
-        t += 0.01;
-        n -= 0.01;
-        new_heatmap.set("opacity", t);
-        heatmap.set("opacity", n);
-        if (t >= 0.8) {
-            heatmap.setData(e);
-            setTimeout(function() {
-                heatmap.set("opacity", 0.8);
-                new_heatmap.set("opacity", 0);
-                new_heatmap.setData([]);
-                clearInterval(r);
-            }, 50);
-        }
-    }, 10);
 }
 
 // The info bar shows the "area" you clicked on
