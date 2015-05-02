@@ -7,14 +7,112 @@ var new_heatmapPostive = [];
 var new_heatmapNegative = [];
 
 $(document).ready(initialize);
+/*
+$(function() {
+    $( "#sidebar" ).draggable();
+  });
+*/
+
+Date.prototype.getWeek = function(start)
+{
+    //Calcing the starting point
+    start = start || 0;
+    var today = new Date(this.setHours(0, 0, 0, 0));
+    var day = today.getDay() - start;
+    var date = today.getDate() - day;
+
+    // Grabbing Start/End Dates
+    var StartDate = new Date(today.setDate(date));
+    var EndDate = new Date(today.setDate(date + 6));
+    return [StartDate, EndDate];
+}
 
 // TODO: review setting a default date or date range here
 function initialize()
 {
-	displayMap();
-	displayArticles();
 	$("#bothSentiment").addClass("active");
 	$("#allNews").addClass("active");
+	$("#pac-input").val("");
+	setDateRangeInformation();
+	displayMap();
+	displayArticles(selectedNewsCategory,selectedSentiment,selectedDateRange, -1,"");	
+}
+
+//News Category Click Event
+var selectedNewsCategory = "allNews";
+var selectedNewsArticleCount = 0;
+$(".sidebar-select li").click(function(){
+	$(".sidebar-select li").removeClass('active');	
+	$(this).addClass('active');
+	selectedNewsCategory = $(this).attr('id'); 
+	selectedNewsArticleCount = $("#"+selectedNewsCategory+"Count").text();
+	displayArticles(selectedNewsCategory, selectedSentiment,selectedDateRange,selectedNewsArticleCount, searchTerm);
+});
+
+//Article Sentiment Event
+var selectedSentiment = "both";
+$(".sidebar-select-sentiment li").click(function(){
+	$(".sidebar-select-sentiment li").removeClass('active');	
+	$(this).addClass('active');
+	selectedSentiment = $(this).attr('id'); 
+	displayArticles(selectedNewsCategory, selectedSentiment,selectedDateRange,selectedNewsArticleCount, searchTerm);
+});
+
+// Select Date Range Event
+var todaysDate = new Date();
+var selectedDateRange = new Date(todaysDate.setHours(0, 0, 0, 0));
+$(".sidebar-select-date li").click(function(){
+	$(".sidebar-select-date li").removeClass('active');	
+	$(this).addClass('active');
+	selectedDateRange = $(this).attr('id');
+	var date = new Date();
+	var dates = new Date().getWeek();
+	switch (selectedDateRange) {
+    case "todayRange":
+    	var dateString = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+    	selectedDateRange = dateString;
+        break;
+    case "weekRange":	
+    	selectedDateRange = dates[0].toLocaleDateString() + ' to '+ dates[1].toLocaleDateString();
+        break;
+    case "monthRange":    	   
+    	selectedDateRange = (date.getMonth() + 1) + '/' +  date.getFullYear();
+        break;
+    case "yearRange":    	    
+    	selectedDateRange = date.getFullYear();
+        break;  
+	}
+		
+	displayArticles(selectedNewsCategory, selectedSentiment,selectedDateRange, selectedNewsArticleCount, searchTerm);
+});
+
+// Search Box Event
+var searchTerm = "";
+$("#pac-input").keypress(function(e) {
+    if(e.which == 13) {
+    	searchTerm =  $("#pac-input").val();
+        displayArticles(selectedNewsCategory, selectedSentiment,selectedDateRange, selectedNewsArticleCount, searchTerm);
+    }
+});
+
+function setDateRangeInformation(){
+	var date = new Date();
+	var dates = new Date().getWeek();
+	
+	// Current Date	
+	$("#todayRange").addClass("active");
+	var dateString = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+	$("#todayRange").attr("title", dateString);	
+	$("#currentDateRange").append(" "+dateString);
+	
+	// Current Week		
+	$("#weekRange").attr("title", dates[0].toLocaleDateString() + ' to '+ dates[1].toLocaleDateString());
+	
+	// Current Month
+	$("#monthRange").attr("title", (date.getMonth() + 1) + '/' +  date.getFullYear());
+	
+	// Current Year
+	$("#yearRange").attr("title", date.getFullYear());
 }
 
 // Functionality for the popup box
@@ -63,7 +161,7 @@ function openWindow(e) {
     }                
 }
 
-function closeWindow(e) {
+function closeWindow(e) {	 
     if (e.hasClass("is-open")) {
         e.slideUp({
             duration: 100,
@@ -76,12 +174,17 @@ function closeWindow(e) {
             queue: false
         });
         e.addClass("is-closed");
-    }
+    }     
 }
 
 // Get Article Information
 // TODO: change for how we do articles
-function displayArticles(){
+function displayArticles(category, sentiment, dateRange, articleCount, searchTerm){
+	
+	if(articleCount > 0 || articleCount === -1){
+		//alert(category+" - "+sentiment+" - "+ dateRange+" - "+articleCount+" - "+searchTerm);	
+	}		
+	
 	// TODO: get articles from the DB / flip values
     var articles = 
     	[  {
@@ -163,10 +266,67 @@ function displayArticles(){
                 weight: weight
             });
     	}        
-    }
+    }          
+    
+    //var overlay = new NumberMarker(posPoints[0].location, map, 'whatever text or numbers you want here');
 
     timelapse(new google.maps.MVCArray(posPoints),new google.maps.MVCArray(negPoints));
 }
+
+/*  ********* */
+
+function NumberMarker(latlng,  map, value) {
+    this.latlng_ = latlng;
+        this.value = value;
+        /*Do this or nothing will happen:*/
+        this.setMap(map);
+    }
+NumberMarker.prototype = new google.maps.OverlayView();
+NumberMarker.prototype.draw = function() {
+    var me = this;
+    var div = this.div_;
+    if (!div) {
+        // Create a overlay text DIV
+        div = this.div_ = document.createElement('DIV');
+        // Create the DIV representing our NumberMarker
+        div.style.border = "none";
+        div.style.position = "absolute";
+        div.style.paddingLeft = "0px";
+        div.style.cursor = 'pointer';
+
+        var span = document.createElement("span");
+        span.className = "markerOverlay";
+        span.appendChild(document.createTextNode(this.value));
+        div.appendChild(span);
+        google.maps.event.addDomListener(div, "click", function(event) {
+        google.maps.event.trigger(me, "click");
+    });
+
+    // Then add the overlay to the DOM
+    var panes = this.getPanes();
+        panes.overlayImage.appendChild(div);
+    }
+
+    // Position the overlay 
+    var point = this.getProjection().fromLatLngToDivPixel(this.latlng_);
+    if (point) {
+      div.style.left = point.x + 'px';
+      div.style.top = point.y + 'px';
+    }
+};
+NumberMarker.prototype.remove = function() {
+    // Check if the overlay was on the map and needs to be removed.
+    if (this.div_) {    
+        this.div_.parentNode.removeChild(this.div_);
+        this.div_ = null;
+    }
+};
+
+NumberMarker.prototype.getPosition = function() {
+    return this.latlng_;
+};
+
+/* ****** */
 
 // Uses Google Maps
 function displayMap()
@@ -184,7 +344,7 @@ function displayMap()
         $("#infobar-list").empty();
         articleIndex = 0;
         getArticle();
-    });
+    });      
     
     setStyle(map);
 }
@@ -323,6 +483,13 @@ function timelapse(postive, negative) {
 }
 
 function getArticle() {
+	
+	// only 1 article is retrieved from the collection per call
+	// taking into consideration the user may not look are more than one
+	// then move to another location
+	// Longitude: -74.008680
+	// Latitude: 40.711676
+	// Radius: 1 mile
 	var articles = 
 		[{
 			"pk":634280,
@@ -343,8 +510,30 @@ function getArticle() {
 				"summary" : 1
 			},
 			"keywords" : [ "worda", "wordb", "wordc"]
-		}];
+		},
+		{
+			"pk":634281,
+			"date": "2015-04-25T06:09:45.315Z",
+			"provider": "Reuters",
+			"cluster_url": "http://google.com/HERE", 
+			"summary" : "PARIS (Reuters) - Paris authorities said on Sunday they were holding five men over the killing of Kremlin critic Boris Nemtsov, one of whom served in a police unit in the Russian region of Chechnya",
+			"title": "Two charged with Nemtsov killing include Chechen officer: report", 
+			"location": ["Paris",48.8534100,2.3488000], 
+			"article_url": "http://feeds.reuters.com/~r/Reuters/worldNews/~3/zXpgDIDSlYA/story01.htm",
+			"importance": 3445,
+			"image_url": "http://s2.reutersmedia.net/resources/r/?m=02&d=20150308&t=2&i=1030534711&w=580&fh=&fw=&ll=&pl=&r=LYNXMPEB27083",
+			"author": "John Smith",
+			"category": "WorldNews",
+			"sentiment" :{
+				"average" : 4,
+				"longestSentence" : 4,
+				"summary" : 4
+			},
+			"keywords" : [ "worda", "wordb", "wordc"]
+		}
 		
+		];
+	
 		closeWindow($("#about-window"));
         if (articles.length === 0) {
             closeWindow($("#article-window"));
@@ -353,8 +542,10 @@ function getArticle() {
         }               
          
         var article = articles[0];
+        var articleDate = new Date(article.date);
+        var articleFormatDate =(articleDate.getMonth() + 1) + '/' + articleDate.getDate() + '/' +  articleDate.getFullYear();
         if (articleIndex === 0) {
-            $(".country").text(article.location[0].toUpperCase() + " " + article.date.replace(/-/g, "/").toUpperCase());
+            $(".country").text(article.location[0].toUpperCase() + " " + articleFormatDate);
         }
         
         viewinfobar();        
@@ -372,7 +563,7 @@ function getArticle() {
         
         var sentimentText = [ "Very Negative","Negative","Neutral", "Positive", "Very Positive"];
         
-        $("#article-category").text(article.category + " | " + article.date);
+        $("#article-category").text(article.category + " | " + articleFormatDate);
         $("#article-author").text(article.provider + " | "+ article.author);
         $("#article-sentiment").text("Sentiment: " + sentimentText[Math.round(article.sentiment.average)]);
         $("#article-image").attr("src", article.image_url);
@@ -381,6 +572,7 @@ function getArticle() {
         $("#article-title").attr("href", article.article_url);
         $("#article-keywords").text(article.keywords);
         $("#cluster-link").attr("href", article.cluster_url);
+        $('#share-bar').empty();
         $('#share-bar').share({
             networks: ['facebook','googleplus','twitter','email'],
             theme: 'square'

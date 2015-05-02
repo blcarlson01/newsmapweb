@@ -34,17 +34,30 @@
 			<div style="padding-top: 0; height: auto" class="section"
 				id="sidebarContent">
 				<input id="pac-input" class="select-search" type="text"
-					placeholder="Search News Articles"> Categories
+					placeholder="Search News Articles"> News Categories
 				<ul class="sidebar-select">
-					<li id="allNews">All</li>
-					<li id="worldNews">World News</li>
-					<li id="usNews">US News</li>
+					<li id="allNews">All (<span id="allNewsCount">5</span>)</li>
+					<li id="worldNews">World News (<span id="worldNewsCount">1</span>)</li>
+					<li id="usNews">US News (<span id="usNewsCount">0</span>)</li>
+					<li id="usPolitics">US Politics (<span id="usPoliticsCount">0</span>)</li>
+					<li id="environment">Environment (<span id="environmentCount">0</span>)</li>
+					<li id="businessNews">Business News (<span id="businessNewsCount">0</span>)</li>
+					<li id="globalMarketsNews">Global Markets News (<span id="globalMarketsNewsCount">0</span>)</li>
+					<li id="usMarkets">US Markets (<span id="usMarketsCount">0</span>)</li>
 				</ul>
-				Sentiment
+				<div id="categoryDiv">Article Sentiment</div>				
 				<ul class="sidebar-select-sentiment">
 					<li id="bothSentiment">Both</li>
 					<li id="postiveSentiment">Positive</li>
 					<li id="negativeSentiment">Negative</li>
+				</ul>
+				<div id="displayGradient"></div>
+				<div id="dateRangeDiv">Date Range: <span id="currentDateRange"></span> </div>
+				<ul class="sidebar-select-date">
+					<li id="todayRange">Today</li>
+					<li id="weekRange">Week</li>
+					<li id="monthRange">Month</li>
+					<li id="yearRange">Year</li>
 				</ul>
 			</div>
 		</div>
@@ -97,6 +110,7 @@
 	<script src="js/external/jquery-2.1.3.min.js"></script>
 	<script src="js/external/jquery.share.js"></script>
 	<script src="js/external/jBox.min.js"></script>
+	<script src="js/external/jquery-ui.min.js"></script>
 	<script src="js/index.js"></script>
 </body>
 </html>

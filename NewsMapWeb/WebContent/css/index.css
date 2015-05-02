@@ -148,7 +148,7 @@ a:hover {
 .sidebar-select > li {
     cursor: pointer;
     display: inline-block;
-    line-height: 38px;
+    line-height: 30px;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -186,7 +186,7 @@ a:hover {
 .sidebar-select-sentiment > li {
     cursor: pointer;
     display: inline-block;
-    line-height: 38px;
+    line-height: 30px;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -197,6 +197,46 @@ a:hover {
 }
 .sidebar-select-sentiment > li:hover {
     background-color: #e8e8e8;
+}
+
+.sidebar-select-date
+{
+	border: 1px solid #e8e8e8;
+    display: inline-block;
+    height: 100%;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.sidebar-select-date > li + li {
+    border-left: 1px solid #e8e8e8;
+}
+.sidebar-select-date > li {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.15s linear 0s, color 0.15s linear 0s;
+    vertical-align: middle;
+    width: 25%;
+    margin: 0 -4px 0 0;
+}
+.sidebar-select-date > li:hover {
+    background-color: #e8e8e8;
+}
+#dateRangeDiv
+{
+	margin-top: 15px;
+}
+
+#categoryDiv
+{
+	margin-top: 10px;
 }
 
 .active {
@@ -347,7 +387,7 @@ a#article-title:hover
     left: 50px;
     margin: 30px;
     position: absolute;
-    top: 90px;
+    top: 25px;
     width: 300px;
     z-index: 4;
     border-radius: 15px;
@@ -396,6 +436,11 @@ svg:not(:root) {
     margin-top: 3px;
 }
 
+#currentDateRange
+{
+	font-size: 14px;
+}
+
 .map-container #sidebar {
     margin-left: 15px;
     position: absolute;
@@ -426,3 +471,15 @@ svg:not(:root) {
     height: 12px;
     width: 7px;
 }
+
+#displayGradient {
+	float: right;
+    width: 172px;
+    height: 10px;
+    margin-right: -1px;
+    background: -webkit-linear-gradient(left, rgba(0, 0, 255, 1),rgba(0, 25, 255, 1),rgba(0, 50, 255, 1),rgba(0, 75, 255, 1),rgba(0, 100, 255, 1),rgba(0, 110, 255, 1),rgba(0, 125, 191, 1),rgba(0, 145, 223, 1), rgba(0, 160, 255, 1),rgba(0, 175, 255, 1),rgba(0, 200, 255, 1), rgba(0, 225, 255, 1),rgba(0, 255, 255, 1), rgba(0, 255, 255, 0),rgba(255, 255, 0, 0), rgba(255, 255, 0, 1), rgba(255, 225, 0, 1), rgba(255, 200, 0, 1), rgba(255, 175, 0, 1), rgba(255, 160, 0, 1), rgba(255, 145, 0, 1), rgba(255, 125, 0, 1), rgba(255, 110, 0, 1), rgba(255, 100, 0, 1), rgba(255, 75, 0, 1), rgba(255, 50, 0, 1), rgba(255, 25, 0, 1), rgba(255, 0, 0, 1)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgba(0, 0, 255, 1),rgba(0, 25, 255, 1),rgba(0, 50, 255, 1),rgba(0, 75, 255, 1),rgba(0, 100, 255, 1),rgba(0, 110, 255, 1),rgba(0, 125, 191, 1),rgba(0, 145, 223, 1), rgba(0, 160, 255, 1),rgba(0, 175, 255, 1),rgba(0, 200, 255, 1), rgba(0, 225, 255, 1),rgba(0, 255, 255, 1), rgba(0, 255, 255, 0), rgba(255, 255, 0, 0), rgba(255, 255, 0, 1), rgba(255, 225, 0, 1), rgba(255, 200, 0, 1), rgba(255, 175, 0, 1), rgba(255, 160, 0, 1), rgba(255, 145, 0, 1), rgba(255, 125, 0, 1), rgba(255, 110, 0, 1), rgba(255, 100, 0, 1), rgba(255, 75, 0, 1), rgba(255, 50, 0, 1), rgba(255, 25, 0, 1), rgba(255, 0, 0, 1)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgba(0, 0, 255, 1),rgba(0, 25, 255, 1),rgba(0, 50, 255, 1),rgba(0, 75, 255, 1),rgba(0, 100, 255, 1),rgba(0, 110, 255, 1),rgba(0, 125, 191, 1),rgba(0, 145, 223, 1), rgba(0, 160, 255, 1),rgba(0, 175, 255, 1),rgba(0, 200, 255, 1), rgba(0, 225, 255, 1),rgba(0, 255, 255, 1), rgba(0, 255, 255, 0),rgba(255, 255, 0, 0), rgba(255, 255, 0, 1), rgba(255, 225, 0, 1), rgba(255, 200, 0, 1), rgba(255, 175, 0, 1), rgba(255, 160, 0, 1), rgba(255, 145, 0, 1), rgba(255, 125, 0, 1), rgba(255, 110, 0, 1), rgba(255, 100, 0, 1), rgba(255, 75, 0, 1), rgba(255, 50, 0, 1), rgba(255, 25, 0, 1), rgba(255, 0, 0, 1)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(0, 0, 255, 1),rgba(0, 25, 255, 1),rgba(0, 50, 255, 1),rgba(0, 75, 255, 1),rgba(0, 100, 255, 1),rgba(0, 110, 255, 1),rgba(0, 125, 191, 1),rgba(0, 145, 223, 1), rgba(0, 160, 255, 1),rgba(0, 175, 255, 1),rgba(0, 200, 255, 1), rgba(0, 225, 255, 1),rgba(0, 255, 255, 1), rgba(0, 255, 255, 0), rgba(255, 255, 0, 0), rgba(255, 255, 0, 1), rgba(255, 225, 0, 1), rgba(255, 200, 0, 1), rgba(255, 175, 0, 1), rgba(255, 160, 0, 1), rgba(255, 145, 0, 1), rgba(255, 125, 0, 1), rgba(255, 110, 0, 1), rgba(255, 100, 0, 1), rgba(255, 75, 0, 1), rgba(255, 50, 0, 1), rgba(255, 25, 0, 1), rgba(255, 0, 0, 1)); /* Standard syntax (must be last) */
+}
+ 
