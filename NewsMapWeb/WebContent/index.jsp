@@ -20,7 +20,7 @@
 					class="logo" src="images/newsmaplogo2.png"></a>
 			</div>
 			<ul class="nav nav-right">
-				<li id="listView">List View</li>
+				<li id="listView"><a href="articles.jsp">List View</a></li>
 				<li id="about">About</li>
 			</ul>
 		</div>
@@ -100,9 +100,9 @@
 		<h4>NewsMap Version 1.0</h4>
 		<p>Click on a hotspot to view news in that area.</p>
 		<h4>Group Members</h4>
+		<p>Brandon Carlson (blcrlsn2)</p>		
+		<p>Thomas Hennessey (thennes2)</p>		
 		<p>Kim Phan (kimphan2)</p>
-		<p>Thomas Hennessey (thennes2)</p>
-		<p>Brandon Carlson (blcrlsn2)</p>
 	</div>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script type="text/javascript"
