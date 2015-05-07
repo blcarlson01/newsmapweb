@@ -1,7 +1,7 @@
 var heatmapPostive = [];
 var heatmapNegative = [];
 var articleIndex = 0;
-var latLng = [];
+var latlng = [];
 var map = [];
 var new_heatmapPostive = [];
 var new_heatmapNegative = [];
@@ -180,13 +180,32 @@ function closeWindow(e) {
 // Get Article Information
 // TODO: change for how we do articles
 function displayArticles(category, sentiment, dateRange, articleCount, searchTerm){
-	
+	var articles = [];
 	if(articleCount > 0 || articleCount === -1){
-		//alert(category+" - "+sentiment+" - "+ dateRange+" - "+articleCount+" - "+searchTerm);	
+		//alert(category+" - "+sentiment+" - "+ dateRange+" - "+articleCount+" - "+searchTerm);			
+		//displayRetrievedArticles();
+		$.ajax({
+			  url: "articlesLocation.jsp",
+			  method: "POST",
+			  data: 
+			  {
+				  category : category,
+				  sentiment : sentiment,
+				  dateRange : dateRange,
+				  searchTerm : searchTerm
+			  },
+			  dataType: "json"
+			}).done(function( data ) {
+				displayRetrievedArticles(data);
+			}).fail(function( jqXHR, textStatus, errorThrown ){
+				alert(jqXHR + " - " + textStatus);
+			}); 
 	}		
-	
-	// TODO: get articles from the DB / flip values
-    var articles = 
+}
+
+function displayRetrievedArticles(articles){ 
+// TODO: get articles from the DB / flip values
+  /*  var articles = 
     	[  {
 		     "pk":634280,
 	         "location":["Dublin", 53.3330600, -6.2488900],
@@ -216,7 +235,7 @@ function displayArticles(category, sentiment, dateRange, articleCount, searchTer
 		     "pk":634280,
 	         "location":["Dublin", 53.3330600, -6.2488900],
 		     "averageSentiment": 2 // netrual	      
-	   }];
+	   }]; */
     
     if (articles.length === 0) {
         window.alert("Sorry, we don't have any data for this date.");
@@ -232,9 +251,9 @@ function displayArticles(category, sentiment, dateRange, articleCount, searchTer
     	// Postive (Neutral is added to both)
     	if(article.averageSentiment > 2){
     		if(article.averageSentiment <= 3){
-    			weight = 20 * article.averageSentiment;
+    			weight =  article.averageSentiment;
     		}else{
-    			weight = 50 * article.averageSentiment;
+    			weight =  article.averageSentiment;
     		}
     		posPoints.push({
                 location: new google.maps.LatLng(latlng[0], latlng[1]),
@@ -245,9 +264,9 @@ function displayArticles(category, sentiment, dateRange, articleCount, searchTer
     	// Negative
     	if(article.averageSentiment < 2){
     		if(article.averageSentiment >= 1){
-    			weight = 20 * (4 - article.averageSentiment);
+    			weight =  (4 - article.averageSentiment);
     		}else{
-    			weight = 50 * (4 - article.averageSentiment);
+    			weight =  (4 - article.averageSentiment);
     		}
     			
     		negPoints.push({
@@ -340,7 +359,7 @@ function displayMap()
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         
     google.maps.event.addListener(map, "click", function(e) {
-        latLng = e.latLng;
+        latlng = e.latLng;
         $("#infobar-list").empty();
         articleIndex = 0;
         getArticle();
@@ -483,7 +502,25 @@ function timelapse(postive, negative) {
 }
 
 function getArticle() {
-	
+	getRetrievedArticles();
+/*	$.ajax({
+		  url: "articleList.jsp",
+		  method: "POST",
+		  data: 
+		  {
+			  //artileId: might need 
+			  latLng : latlng,
+			  radius : 3 //TODO: user defined radus plus a default
+		  },
+		  dataType: "json"
+		}).done(function( data ) {
+			getRetrievedArticles(data);
+		}).fail(function( jqXHR, textStatus, errorThrown ){
+			alert(jqXHR + " - " + textStatus);
+		}); */
+}
+
+function getRetrievedArticles(){
 	// only 1 article is retrieved from the collection per call
 	// taking into consideration the user may not look are more than one
 	// then move to another location
@@ -628,3 +665,7 @@ function toggleSidebar()
 {
 	$("#sidebar .title").parent().click()	
 }700>$(window).width()&&$(function(){toggleSidebar()});
+
+$("#listView").click(function(){
+	window.location.href = "articles.jsp";
+});

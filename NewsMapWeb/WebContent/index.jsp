@@ -20,7 +20,7 @@
 					class="logo" src="images/newsmaplogo2.png"></a>
 			</div>
 			<ul class="nav nav-right">
-				<li id="listView"><a href="articles.jsp">List View</a></li>
+				<li id="listView">List View</li>
 				<li id="about">About</li>
 			</ul>
 		</div>
