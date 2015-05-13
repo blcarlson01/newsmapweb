@@ -1,0 +1,477 @@
+//
+TODO: css is a mess reduce / remove 
+
+* {
+	box-sizing: border-box;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	main, nav, section, summary {
+	display: block;	
+}
+
+#main-container {
+	padding-top: 20px;
+	position: relative;
+}
+
+.grid-container-fluid, .container-split, #main-container,
+	.alert-container, .alert-container.tooltip {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1280px;
+	padding-left: 9px;
+	padding-right: 9px;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	clear: both;
+}
+
+#main-container::before, #main-container::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+#main-container::after {
+	clear: both;
+}
+
+#main-container::before, #main-container::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	clear: both;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	clear: both;
+}
+
+.grid-container-fluid::before, .container-split::before, #main-container::before,
+	.alert-container::before, .alert-container.tooltip::before,
+	.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	content: "";
+	display: table;
+}
+
+.grid-container-fluid::after, .container-split::after, #main-container::after,
+	.alert-container::after, .alert-container.tooltip::after {
+	clear: both;
+}
+
+#main-container .main-content::before, #main-container .main-content::after
+	{
+	content: "";
+	display: table;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+#main-container .main-content::after {
+	clear: both;
+}
+
+#main-container .main-content::before, #main-container .main-content::after
+	{
+	content: "";
+	display: table;
+}
+
+.row::after, .container-split .row-split::after, .layout-full::after,
+	.layout-abc::after, .layout-bc::after, .layout-ab::after, .layout-cb::after,
+	.blog-container::after {
+	clear: both;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::after, .container-split .row-split::after, .layout-full::after,
+	.layout-abc::after, .layout-bc::after, .layout-ab::after, .layout-cb::after,
+	.blog-container::after {
+	clear: both;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::after, .container-split .row-split::after, .layout-full::after,
+	.layout-abc::after, .layout-bc::after, .layout-ab::after, .layout-cb::after,
+	.blog-container::after {
+	clear: both;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row::after, .container-split .row-split::after, .layout-full::after,
+	.layout-abc::after, .layout-bc::after, .layout-ab::after, .layout-cb::after,
+	.blog-container::after {
+	clear: both;
+}
+
+.row::before, .container-split .row-split::before, .layout-full::before,
+	.layout-abc::before, .layout-bc::before, .layout-ab::before, .layout-cb::before,
+	.blog-container::before, .row::after, .container-split .row-split::after,
+	.layout-full::after, .layout-abc::after, .layout-bc::after, .layout-ab::after,
+	.layout-cb::after, .blog-container::after {
+	content: "";
+	display: table;
+}
+
+.row, .container-split .row-split, .layout-full, .layout-abc, .layout-bc,
+	.layout-ab, .layout-cb, .blog-container {
+	margin-left: -9px;
+	margin-right: -9px;
+}
+
+.layout-abc .col-a {
+	padding-left: 7px;
+}
+.layout-abc .col-c {
+	padding-right: 7px;
+}
+
+.col-lg-3, .layout-abc .col-c, .layout-bc .col-c, .layout-bc.bc-full .col-c,
+	.layout-cb .col-c {
+	width: 20%;
+}
+
+.layout-abc .col-c {
+	padding-right: 7px;
+}
+
+.col-lg-3, .layout-abc .col-c, .layout-bc .col-c, .layout-bc.bc-full .col-c,
+	.layout-cb .col-c {
+	width: 20%;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .club-game-score.soccer ul li.post-game .status,
+	.club-game-score.soccer ul li.live-game .status, .col-sm-2, .col-md-2,
+	.layout-abc .col-a, .layout-ab .col-a, .col-lg-2, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .status, .col-xs-3, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .col-sm-3, .layout-abc .col-a,
+	.layout-ab .col-a, .col-md-3, .col-lg-3, .layout-abc .col-c, .layout-bc .col-c,
+	.layout-bc.bc-full .col-c, .layout-cb .col-c, .col-xs-4,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-sm-4, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-md-4, .layout-abc .col-c,
+	.layout-bc .col-c, .layout-cb .col-c, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-lg-4, .col-xs-5, .club-game-score.soccer ul li.post-game .team-away,
+	.club-game-score.soccer ul li.post-game .team-home, .club-game-score.soccer ul li.live-game .team-away,
+	.club-game-score.soccer ul li.live-game .team-home, .col-sm-5,
+	.col-md-5, .col-lg-5, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .col-xs-6, .club-game-score ul li.pre-game .status,
+	article.sub-module.rankings .grid-rank, .col-sm-6, .container-split .row-split .column-split,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-md-6,
+	.layout-abc .col-b, .col-lg-6, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-xs-7,
+	.col-sm-7, .col-md-7, .col-lg-7, .layout-abc .col-b, .col-xs-8,
+	.col-sm-8, .col-md-8, .layout-bc .col-b, .layout-cb .col-b,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-lg-8,
+	.col-xs-9, .col-sm-9, .layout-abc .col-b, .layout-ab .col-b, .col-md-9,
+	.col-lg-9, .layout-bc .col-b, .layout-bc.bc-full .col-b, .layout-cb .col-b,
+	.col-xs-10, .col-sm-10, .col-md-10, .layout-ab .col-b, .col-lg-10,
+	.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12,
+	.container-split .row-split .column-split, .layout-full .col-a,
+	.layout-abc .col-a, .layout-abc .col-b, .layout-abc .col-c, .layout-bc .col-b,
+	.layout-bc .col-c, .layout-bc.bc-full .col-b, .layout-bc.bc-full .col-c,
+	.layout-ab .col-a, .layout-ab .col-b, .layout-cb .col-c, .layout-cb .col-b,
+	.alert-container.tooltip .row .alert-column, .alert-container.tooltip .layout-full .alert-column,
+	.alert-container.tooltip .layout-abc .alert-column, .alert-container.tooltip .layout-bc .alert-column,
+	.alert-container.tooltip .layout-ab .alert-column, .alert-container.tooltip .layout-cb .alert-column,
+	.alert-container.tooltip .blog-container .alert-column,
+	.alert-container .row .alert-column, .alert-container .container-split .row-split .alert-column,
+	.container-split .alert-container .row-split .alert-column,
+	.alert-container .layout-full .alert-column, .alert-container .layout-abc .alert-column,
+	.alert-container .layout-bc .alert-column, .alert-container .layout-ab .alert-column,
+	.alert-container .layout-cb .alert-column, .alert-container .blog-container .alert-column,
+	.club-game-score ul li .meta-data, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, aside.full-width,
+	.blog-container .blog-column, .col-sm-12, .col-md-12, .layout-bc.bc-full .col-b,
+	.layout-bc.bc-full .col-c, .col-lg-12 {
+	min-height: 1px;
+	padding-left: 9px;
+	padding-right: 9px;
+	position: relative;
+}
+
+.col-md-2, .layout-abc .col-a, .layout-ab .col-a {
+	width: 16.6667%;
+}
+
+.col-md-1, .col-md-2, .layout-abc .col-a, .layout-ab .col-a, .col-md-3,
+	.col-md-4, .layout-abc .col-c, .layout-bc .col-c, .layout-cb .col-c,
+	.club-game-score ul li.pre-game .team-away, .club-game-score ul li.pre-game .team-home,
+	.club-game-score ul li.pre-game .status, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .club-game-score ul li .status,
+	.col-md-5, .col-md-6, .layout-abc .col-b, .col-md-7, .col-md-8,
+	.layout-bc .col-b, .layout-cb .col-b, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-md-9,
+	.col-md-10, .layout-ab .col-b, .col-md-11, .col-md-12, .layout-bc.bc-full .col-b,
+	.layout-bc.bc-full .col-c {
+	float: left;
+}
+
+.col-lg-7, .layout-abc .col-b {
+	width: 58.3333%;
+}
+
+.col-lg-1, .col-lg-2, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .status, .col-lg-3, .layout-abc .col-c,
+	.layout-bc .col-c, .layout-bc.bc-full .col-c, .layout-cb .col-c,
+	.col-lg-4, .col-lg-5, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .col-lg-6, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-lg-7,
+	.layout-abc .col-b, .col-lg-8, .col-lg-9, .layout-bc .col-b, .layout-bc.bc-full .col-b,
+	.layout-cb .col-b, .col-lg-10, .col-lg-11, .col-lg-12 {
+	float: left;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .club-game-score.soccer ul li.post-game .status,
+	.club-game-score.soccer ul li.live-game .status, .col-sm-2, .col-md-2,
+	.layout-abc .col-a, .layout-ab .col-a, .col-lg-2, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .status, .col-xs-3, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .col-sm-3, .layout-abc .col-a,
+	.layout-ab .col-a, .col-md-3, .col-lg-3, .layout-abc .col-c, .layout-bc .col-c,
+	.layout-bc.bc-full .col-c, .layout-cb .col-c, .col-xs-4,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-sm-4, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-md-4, .layout-abc .col-c,
+	.layout-bc .col-c, .layout-cb .col-c, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-lg-4, .col-xs-5, .club-game-score.soccer ul li.post-game .team-away,
+	.club-game-score.soccer ul li.post-game .team-home, .club-game-score.soccer ul li.live-game .team-away,
+	.club-game-score.soccer ul li.live-game .team-home, .col-sm-5,
+	.col-md-5, .col-lg-5, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .col-xs-6, .club-game-score ul li.pre-game .status,
+	article.sub-module.rankings .grid-rank, .col-sm-6, .container-split .row-split .column-split,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-md-6,
+	.layout-abc .col-b, .col-lg-6, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-xs-7,
+	.col-sm-7, .col-md-7, .col-lg-7, .layout-abc .col-b, .col-xs-8,
+	.col-sm-8, .col-md-8, .layout-bc .col-b, .layout-cb .col-b,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-lg-8,
+	.col-xs-9, .col-sm-9, .layout-abc .col-b, .layout-ab .col-b, .col-md-9,
+	.col-lg-9, .layout-bc .col-b, .layout-bc.bc-full .col-b, .layout-cb .col-b,
+	.col-xs-10, .col-sm-10, .col-md-10, .layout-ab .col-b, .col-lg-10,
+	.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12,
+	.container-split .row-split .column-split, .layout-full .col-a,
+	.layout-abc .col-a, .layout-abc .col-b, .layout-abc .col-c, .layout-bc .col-b,
+	.layout-bc .col-c, .layout-bc.bc-full .col-b, .layout-bc.bc-full .col-c,
+	.layout-ab .col-a, .layout-ab .col-b, .layout-cb .col-c, .layout-cb .col-b,
+	.alert-container.tooltip .row .alert-column, .alert-container.tooltip .layout-full .alert-column,
+	.alert-container.tooltip .layout-abc .alert-column, .alert-container.tooltip .layout-bc .alert-column,
+	.alert-container.tooltip .layout-ab .alert-column, .alert-container.tooltip .layout-cb .alert-column,
+	.alert-container.tooltip .blog-container .alert-column,
+	.alert-container .row .alert-column, .alert-container .container-split .row-split .alert-column,
+	.container-split .alert-container .row-split .alert-column,
+	.alert-container .layout-full .alert-column, .alert-container .layout-abc .alert-column,
+	.alert-container .layout-bc .alert-column, .alert-container .layout-ab .alert-column,
+	.alert-container .layout-cb .alert-column, .alert-container .blog-container .alert-column,
+	.club-game-score ul li .meta-data, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, aside.full-width,
+	.blog-container .blog-column, .col-sm-12, .col-md-12, .layout-bc.bc-full .col-b,
+	.layout-bc.bc-full .col-c, .col-lg-12 {
+	min-height: 1px;
+	padding-left: 9px;
+	padding-right: 9px;
+	position: relative;
+}
+
+.col-lg-1, .col-lg-2, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .status, .col-lg-3, .layout-abc .col-c,
+	.layout-bc .col-c, .layout-bc.bc-full .col-c, .layout-cb .col-c,
+	.col-lg-4, .col-lg-5, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .col-lg-6, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-lg-7,
+	.layout-abc .col-b, .col-lg-8, .col-lg-9, .layout-bc .col-b, .layout-bc.bc-full .col-b,
+	.layout-cb .col-b, .col-lg-10, .col-lg-11, .col-lg-12 {
+	float: left;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .club-game-score.soccer ul li.post-game .status,
+	.club-game-score.soccer ul li.live-game .status, .col-sm-2, .col-md-2,
+	.layout-abc .col-a, .layout-ab .col-a, .col-lg-2, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .status, .col-xs-3, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .col-sm-3, .layout-abc .col-a,
+	.layout-ab .col-a, .col-md-3, .col-lg-3, .layout-abc .col-c, .layout-bc .col-c,
+	.layout-bc.bc-full .col-c, .layout-cb .col-c, .col-xs-4,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-sm-4, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-md-4, .layout-abc .col-c,
+	.layout-bc .col-c, .layout-cb .col-c, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li.pre-game .status,
+	.club-game-score ul li .team-away, .club-game-score ul li .team-home,
+	.club-game-score ul li .status, .col-lg-4, .col-xs-5, .club-game-score.soccer ul li.post-game .team-away,
+	.club-game-score.soccer ul li.post-game .team-home, .club-game-score.soccer ul li.live-game .team-away,
+	.club-game-score.soccer ul li.live-game .team-home, .col-sm-5,
+	.col-md-5, .col-lg-5, .club-game-score ul li.pre-game .team-away,
+	.club-game-score ul li.pre-game .team-home, .club-game-score ul li .team-away,
+	.club-game-score ul li .team-home, .col-xs-6, .club-game-score ul li.pre-game .status,
+	article.sub-module.rankings .grid-rank, .col-sm-6, .container-split .row-split .column-split,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-md-6,
+	.layout-abc .col-b, .col-lg-6, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-xs-7,
+	.col-sm-7, .col-md-7, .col-lg-7, .layout-abc .col-b, .col-xs-8,
+	.col-sm-8, .col-md-8, .layout-bc .col-b, .layout-cb .col-b,
+	#article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, .col-lg-8,
+	.col-xs-9, .col-sm-9, .layout-abc .col-b, .layout-ab .col-b, .col-md-9,
+	.col-lg-9, .layout-bc .col-b, .layout-bc.bc-full .col-b, .layout-cb .col-b,
+	.col-xs-10, .col-sm-10, .col-md-10, .layout-ab .col-b, .col-lg-10,
+	.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12,
+	.container-split .row-split .column-split, .layout-full .col-a,
+	.layout-abc .col-a, .layout-abc .col-b, .layout-abc .col-c, .layout-bc .col-b,
+	.layout-bc .col-c, .layout-bc.bc-full .col-b, .layout-bc.bc-full .col-c,
+	.layout-ab .col-a, .layout-ab .col-b, .layout-cb .col-c, .layout-cb .col-b,
+	.alert-container.tooltip .row .alert-column, .alert-container.tooltip .layout-full .alert-column,
+	.alert-container.tooltip .layout-abc .alert-column, .alert-container.tooltip .layout-bc .alert-column,
+	.alert-container.tooltip .layout-ab .alert-column, .alert-container.tooltip .layout-cb .alert-column,
+	.alert-container.tooltip .blog-container .alert-column,
+	.alert-container .row .alert-column, .alert-container .container-split .row-split .alert-column,
+	.container-split .alert-container .row-split .alert-column,
+	.alert-container .layout-full .alert-column, .alert-container .layout-abc .alert-column,
+	.alert-container .layout-bc .alert-column, .alert-container .layout-ab .alert-column,
+	.alert-container .layout-cb .alert-column, .alert-container .blog-container .alert-column,
+	.club-game-score ul li .meta-data, #article-feed .article .article-body aside.inline.float-l,
+	#article-feed .article .article-body aside.inline.float-r, aside.full-width,
+	.blog-container .blog-column, .col-sm-12, .col-md-12, .layout-bc.bc-full .col-b,
+	.layout-bc.bc-full .col-c, .col-lg-12 {
+	min-height: 1px;
+	padding-left: 9px;
+	padding-right: 9px;
+	position: relative;
+}
