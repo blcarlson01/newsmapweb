@@ -28,7 +28,7 @@
 	<div id="sidebar">
 		<div class="section">
 			<div class="toggle-triangle carat up-carat"></div>
-			<div class="title">Global News Heatmap</div>
+			<div class="title">News Heatmap</div>
 		</div>
 		<div style="display: block;" class="content">
 			<div style="padding-top: 0; height: auto" class="section"
@@ -36,14 +36,14 @@
 				<input id="pac-input" class="select-search" type="text"
 					placeholder="Search News Articles"> News Categories
 				<ul class="sidebar-select">
-					<li id="allNews">All (<span id="allNewsCount">5</span>)</li>
-					<li id="worldNews">World News (<span id="worldNewsCount">1</span>)</li>
-					<li id="usNews">US News (<span id="usNewsCount">0</span>)</li>
-					<li id="usPolitics">US Politics (<span id="usPoliticsCount">0</span>)</li>
-					<li id="environment">Environment (<span id="environmentCount">0</span>)</li>
-					<li id="businessNews">Business News (<span id="businessNewsCount">0</span>)</li>
-					<li id="globalMarketsNews">Global Markets News (<span id="globalMarketsNewsCount">0</span>)</li>
-					<li id="usMarkets">US Markets (<span id="usMarketsCount">0</span>)</li>
+					<li id="allNews">All (<span id="allNewsCount">1000</span>)</li>
+					<li id="worldNews">World News (<span id="worldNewsCount">734</span>)</li>
+					<li id="usNews">US News (<span id="usNewsCount">266</span>)</li>
+					<li id="usPolitics">US Politics (<span id="usPoliticsCount">154</span>)</li>
+					<li id="environment">Environment (<span id="environmentCount">32</span>)</li>
+					<li id="businessNews">Business News (<span id="businessNewsCount">96</span>)</li>
+					<li id="globalMarketsNews">Global Markets News (<span id="globalMarketsNewsCount">43</span>)</li>
+					<li id="usMarkets">US Markets (<span id="usMarketsCount">124</span>)</li>
 				</ul>
 				<div id="categoryDiv">Article Sentiment</div>				
 				<ul class="sidebar-select-sentiment">
